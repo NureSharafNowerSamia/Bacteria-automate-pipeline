@@ -119,11 +119,11 @@ do
     rm "mapping/${num}.sam" "mapping/${num}.bam"
     
     # Taxonomy analysis with Kraken2 and Bracken
-    kraken2 --use-names --threads 30 --db /home/igc-1/tahsin/db/minikrakendb \
+    kraken2 --use-names --threads 30 --db /path/to/minikrakendb \
             --report "taxonomy/${num}_kraken.txt" \
             "filtered-scaffolds/${num}_scaffolds.fasta" > "taxonomy/${num}.kraken"
     
-    bracken -d /home/igc-1/tahsin/db/minikrakendb -i "taxonomy/${num}_kraken.txt" -l S \
+    bracken -d /path/to/minikrakendb -i "taxonomy/${num}_kraken.txt" -l S \
             -o "taxonomy/${num}.bracken"
     
     # Mash analysis
